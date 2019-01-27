@@ -1,0 +1,47 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.2.RELEASE'
+}
+
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+repositories {
+    jcenter()
+}
+
+// NOTE: This is really important, some graalvm runtime libs need to be 'unpacked' when bundled by Spring Boot in order
+// for the ScriptEngine classes to load properly.
+//
+// Example exception if this is not done:
+// ScriptEngineManager providers.next(): javax.script.ScriptEngineFactory: Provider com.oracle.truffle.js.scriptengine.GraalJSEngineFactory could not be instantiated
+bootJar {
+    requiresUnpack '**/*js*.*', '**/*regex*.*'
+    baseName = 'app'
+}
+
+bootRun {
+    sourceResources sourceSets.main
+}
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
+
+dependencies {
+    runtime 'org.graalvm.js:js:1.0.0-rc11'
+    runtime 'org.graalvm.js:js-scriptengine:1.0.0-rc11'
+    compile 'org.graalvm.sdk:graal-sdk:1.0.0-rc11'
+
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.3.0'
+
+    compileOnly 'org.projectlombok:lombok:1.18.4'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+}

@@ -1,0 +1,7 @@
+
+spring:
+  thymeleaf:
+    template-resolver-order: 10
+
+ssr:
+  componentDir: public/generated/server

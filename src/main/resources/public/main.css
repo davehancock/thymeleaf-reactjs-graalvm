@@ -1,0 +1,25 @@
+
+.nav {
+    background-color: #5c5c5c;
+    min-height: 50px;
+}
+
+.nav-link {
+    color: #f9fffd;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.nav-link:hover {
+    color: #ff00da;
+}
+
+
+#base {
+    font-family: "Courier New", Courier, monospace;
+}
+
+.tl-container {
+    text-align: center;
+    margin: 20px;
+}

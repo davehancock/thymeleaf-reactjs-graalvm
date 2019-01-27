@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<head>
+    <title>Postcodes</title>
+    <link type="text/css" rel="stylesheet" th:href="@{generated/client/postcode.css}"/>
+</head>
+
+<body>
+
+<div layout:fragment="content">
+    <h3>The below has been rendered server side AND hydrated client side</h3>
+    <h6>So its fast to serve, SEO friendly but still dynamic for the client [And it's using Thymeleaf(!)]</h6>
+    <br/>
+
+    <div th:replace="${postcodeTemplate}"></div>
+    <script th:src="@{generated/client/postcode.js}"></script>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<head>
+    <title>Home</title>
+    <link type="text/css" rel="stylesheet" th:href="@{generated/client/comparison-widget.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{generated/client/comparison-table.css}"/>
+</head>
+
+<body>
+
+<div layout:fragment="content">
+    <h1>Home Sweet Home</h1>
+
+    <div>
+        <code>ComparisonWidget</code>
+        <div th:replace="${comparisonWidgetTemplate}"></div>
+    </div>
+
+    <hr/>
+
+    <div>
+        <code>ComparisonTable</code>
+        <div th:replace="${comparisonTableTemplate}"></div>
+    </div>
+
+    <script th:src="@{generated/client/comparison-widget.js}"></script>
+    <script th:src="@{generated/client/comparison-table.js}"></script>
+</div>
+
+</body>
+
+</html>
