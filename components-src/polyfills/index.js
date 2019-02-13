@@ -1,0 +1,9 @@
+import 'whatwg-fetch';
+import 'promise-polyfill/src/polyfill';
+import 'core-js/es6/map';
+import 'core-js/es6/set';
+import 'raf/polyfill';
+import './Array.find';
+import './Array.findIndex';
+import './Array.from';
+import './Object.assign';

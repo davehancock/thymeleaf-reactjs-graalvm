@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import '../polyfills/index.js'
 
 import {ComparisonTable} from '@transferwise/comparison-components'
 
